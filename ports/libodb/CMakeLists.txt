@@ -4,10 +4,17 @@ set(LIBODB_INSTALL_HEADERS ON CACHE BOOL "Install the header files (a debug inst
 file(GLOB_RECURSE libodb_src LIST_DIRECTORIES False
     RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
     *.cxx)
-list(FILTER libodb_src EXCLUDE REGEX /posix/.*)
+if (WIN32)
+  list(FILTER libodb_src EXCLUDE REGEX /posix/.*)
+elseif (UNIX)
+  list(FILTER libodb_src EXCLUDE REGEX /win32/.*)
+endif()
+
+configure_file(config.unix.h.in ${CMAKE_CURRENT_SOURCE_DIR}/odb/details/config.h COPYONLY)
+
 add_library(libodb ${libodb_src})
 target_include_directories(libodb
-    PUBLIC 
+    PUBLIC
         $<INSTALL_INTERFACE:include>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
 
