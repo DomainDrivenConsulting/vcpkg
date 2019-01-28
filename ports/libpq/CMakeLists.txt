@@ -64,8 +64,10 @@ if(WIN32)
     )
     include_directories(src/include/port/win32 src/include/port/win32_msvc)
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    add_definitions(-D_GNU_SOURCE)
     list(APPEND pg_port_src
         src/port/strlcpy.c
+        src/port/getpeereid.c
     )
 endif()
 
