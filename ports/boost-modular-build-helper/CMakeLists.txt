@@ -158,6 +158,7 @@ add_custom_target(boost ALL
         threading=multi
         threadapi=pthread
         debug-symbols=on
+        cxxstd=14
     WORKING_DIRECTORY ${SOURCE_PATH}/build
 )
 
