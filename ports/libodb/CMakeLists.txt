@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.0)
 project(libodb VERSION 2.4.0 LANGUAGES CXX)
 set(LIBODB_INSTALL_HEADERS ON CACHE BOOL "Install the header files (a debug install)")
+configure_file(config.unix.h.in
+    ${CMAKE_CURRENT_SOURCE_DIR}/odb/details/config.h COPYONLY)
+
 file(GLOB_RECURSE libodb_src LIST_DIRECTORIES False
     RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
     *.cxx)
@@ -9,8 +12,6 @@ if (WIN32)
 elseif (UNIX)
   list(FILTER libodb_src EXCLUDE REGEX /win32/.*)
 endif()
-
-configure_file(config.unix.h.in ${CMAKE_CURRENT_SOURCE_DIR}/odb/details/config.h COPYONLY)
 
 add_library(libodb ${libodb_src})
 target_include_directories(libodb
