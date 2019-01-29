@@ -1,9 +1,9 @@
 include(vcpkg_common_functions)
-set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/libodb-boost-2.4.0)
+set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/libodb-boost-2.5.0-b.3)
 vcpkg_download_distfile(ARCHIVE
-    URLS "http://www.codesynthesis.com/download/odb/2.4/libodb-boost-2.4.0.tar.gz"
-    FILENAME "libodb-boost-2.4.0.tar.gz"
-    SHA512 af716b0385cf4ea18b20dcd5880c69c43cfc195eec4ff196a8e438833306489c39ab06a494e5d60cd08ba0d94caa05bd07e5f3fa836d835bad15c8a2ad7de306
+    URLS "https://codesynthesis.com/~boris/tmp/odb/pre-release/b.3/libodb-boost-2.5.0-b.3.tar.gz"
+    FILENAME "libodb-boost-2.5.0-b.3.tar.gz"
+    SHA512 093da7a07252dec89e08cdb80664a575f3efebfbab11f9e7fcac8c81565996a32b88f10009baefabbff3c689015b84eddddeece5a19bbe5765d0f56fdd8fd829
 )
 vcpkg_extract_source_archive(${ARCHIVE})
 

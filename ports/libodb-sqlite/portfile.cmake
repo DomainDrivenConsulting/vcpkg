@@ -7,11 +7,11 @@
 #
 
 include(vcpkg_common_functions)
-set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/libodb-sqlite-2.4.0)
+set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/libodb-sqlite-2.5.0-b.3)
 vcpkg_download_distfile(ARCHIVE
-    URLS "http://www.codesynthesis.com/download/odb/2.4/libodb-sqlite-2.4.0.tar.gz"
-    FILENAME "libodb-sqlite-2.4.0.tar.gz"
-    SHA512 af16da7c82cf8845ca3b393fbd8957a92b05ebc925a5191f20d414ab558345850073cd9c46457d0ef0edfb12ebcb27f267b934c9c69ef598380242fe920c8577
+    URLS "https://codesynthesis.com/~boris/tmp/odb/pre-release/b.3/libodb-sqlite-2.5.0-b.3.tar.gz"
+    FILENAME "libodb-sqlite-2.5.0-b.3.tar.gz"
+    SHA512 6d49ecdae54ce480bfcc88a61c097a0cc8f370bccac78a0d16ae07246f8372185cdd0b5c62fffe293d366e96b0198bfd739d3f566f1ca3b3d508ce6759c60762
 )
 vcpkg_extract_source_archive(${ARCHIVE})
 

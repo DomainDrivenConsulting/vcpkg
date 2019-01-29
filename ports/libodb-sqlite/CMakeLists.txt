@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
-project(libodb-sqlite VERSION 2.4.0 LANGUAGES CXX)
-find_package(odb 2.4.0 REQUIRED COMPONENTS libodb)
+project(libodb-sqlite VERSION 2.5.0 LANGUAGES CXX)
+find_package(odb 2.5.0 REQUIRED COMPONENTS libodb)
 find_package(sqlite3 REQUIRED)
 configure_file(config.unix.h.in
     ${CMAKE_CURRENT_SOURCE_DIR}/odb/sqlite/details/config.h COPYONLY)

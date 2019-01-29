@@ -11,11 +11,11 @@
 #
 
 include(vcpkg_common_functions)
-set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/libodb-mysql-2.4.0)
+set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/libodb-mysql-2.5.0-b.3)
 vcpkg_download_distfile(ARCHIVE
-    URLS "https://www.codesynthesis.com/download/odb/2.4/libodb-mysql-2.4.0.tar.gz"
-    FILENAME "libodb-mysql-2.4.0.tar.gz"
-    SHA512 c27b73c3f61dccdd149c11c122185f645a00d5bc346b366ee65b738f8719c39d03fad07a0d55b62b3db9e3ad2507679c24ddda331e5d110f367ad32f7cf8b910
+    URLS "https://codesynthesis.com/~boris/tmp/odb/pre-release/b.3/libodb-mssql-2.5.0-b.3.tar.gz"
+    FILENAME "libodb-mssql-2.5.0-b.3.tar.gz"
+    SHA512 53b2cb35b8329854f9697d718d7e3c665b4855560005b09af25660475e2e3a5b48fa2268d8dc258226f671cc67880a0f8f35fabc8563cade1495b732ea05990c
 )
 vcpkg_extract_source_archive(${ARCHIVE})
 

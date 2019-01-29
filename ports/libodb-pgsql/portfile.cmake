@@ -1,9 +1,9 @@
 include(vcpkg_common_functions)
-set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/libodb-pgsql-2.4.0)
+set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/libodb-pgsql-2.5.0-b.3)
 vcpkg_download_distfile(ARCHIVE
-    URLS "http://www.codesynthesis.com/download/odb/2.4/libodb-pgsql-2.4.0.tar.gz"
-    FILENAME "libodb-pgsql-2.4.0.tar.gz"
-    SHA512 535515356233b815f144c0098940174f7a530e7fa4e930c0a9ebdc255fdb8bac8cdcceac31f25be4864105323e00bfe50808efa648e7c8ffb5a944e52f514b69
+    URLS "https://codesynthesis.com/~boris/tmp/odb/pre-release/b.3/libodb-pgsql-2.5.0-b.3.tar.gz"
+    FILENAME "libodb-pgsql-2.5.0-b.3.tar.gz"
+    SHA512 f53f996805f362666e97d292245d5341088b2dd7ef503fd9642a64d7dd18379adc70b0d1be5b72fd4b4d28c56a097320e6aaa27c88839b7422fc9ee9d7c93b40
 )
 vcpkg_extract_source_archive(${ARCHIVE})
 
