@@ -1,7 +1,12 @@
 cmake_minimum_required(VERSION 3.0)
 project(libodb-pgsql VERSION 2.5.0 LANGUAGES CXX)
+
+add_definitions(-D_GLIBCXX_USE_CXX11_ABI=1)
+set(CMAKE_CXX_STANDARD 17)
+
 find_package(odb 2.5.0 REQUIRED COMPONENTS libodb)
 find_package(PostgreSQL REQUIRED)
+
 configure_file(config.unix.h.in
     ${CMAKE_CURRENT_SOURCE_DIR}/odb/pgsql/details/config.h COPYONLY)
 

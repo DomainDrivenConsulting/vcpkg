@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.0)
 project(libodb-boost VERSION 2.5.0 LANGUAGES CXX)
+
+add_definitions(-D_GLIBCXX_USE_CXX11_ABI=1)
+set(CMAKE_CXX_STANDARD 17)
+
 find_package(odb 2.5.0 REQUIRED COMPONENTS libodb)
 configure_file(config.unix.h.in
     ${CMAKE_CURRENT_SOURCE_DIR}/odb/boost/details/config.h COPYONLY)

@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.0)
 project(libodb VERSION 2.5.0 LANGUAGES CXX)
+
+add_definitions(-D_GLIBCXX_USE_CXX11_ABI=1)
+set(CMAKE_CXX_STANDARD 17)
+
 set(LIBODB_INSTALL_HEADERS ON CACHE BOOL "Install the header files (a debug install)")
 configure_file(config.unix.h.in
     ${CMAKE_CURRENT_SOURCE_DIR}/odb/details/config.h COPYONLY)
