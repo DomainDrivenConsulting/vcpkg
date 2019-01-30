@@ -44,6 +44,7 @@ install(DIRECTORY odb DESTINATION include/
         PATTERN "*.hxx"
         PATTERN "*.ixx"
         PATTERN "*.txx"
+        PATTERN "*.options"
 )
 endif()
 install(EXPORT odb_boostConfig NAMESPACE odb:: COMPONENT boost DESTINATION share/odb)
