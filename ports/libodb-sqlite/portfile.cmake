@@ -7,18 +7,24 @@
 #
 
 include(vcpkg_common_functions)
-set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/libodb-sqlite-2.5.0-b.3)
-vcpkg_download_distfile(ARCHIVE
-    URLS "https://codesynthesis.com/~boris/tmp/odb/pre-release/b.3/libodb-sqlite-2.5.0-b.3.tar.gz"
-    FILENAME "libodb-sqlite-2.5.0-b.3.tar.gz"
-    SHA512 6d49ecdae54ce480bfcc88a61c097a0cc8f370bccac78a0d16ae07246f8372185cdd0b5c62fffe293d366e96b0198bfd739d3f566f1ca3b3d508ce6759c60762
+
+vcpkg_from_git(
+    OUT_SOURCE_PATH SOURCE_PATH
+    URL "git://git.codesynthesis.com/odb/libodb-sqlite.git"
+    REF 1722964fc477213f36c78272505eb09f6073bff4
+    SHA512 eda436648c13d85c1249bc8d7b223e76f82c5133dbbb70d68649d8a8fb1b4ab1a244e9813703a039a430ca29a271d78e92b52f9424eaf03352e70e29c0391053
 )
-vcpkg_extract_source_archive(${ARCHIVE})
 
 file(COPY
   ${CMAKE_CURRENT_LIST_DIR}/CMakeLists.txt
   ${CMAKE_CURRENT_LIST_DIR}/config.unix.h.in
   DESTINATION ${SOURCE_PATH})
+
+file(COPY
+  ${CMAKE_CURRENT_LIST_DIR}/options.ixx
+  ${CMAKE_CURRENT_LIST_DIR}/options.hxx
+  ${CMAKE_CURRENT_LIST_DIR}/options.cxx
+  DESTINATION ${SOURCE_PATH}/odb/sqlite/details)
 
 vcpkg_configure_cmake(
     SOURCE_PATH ${SOURCE_PATH}

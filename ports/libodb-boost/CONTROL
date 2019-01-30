@@ -1,4 +1,4 @@
 Source: libodb-boost
-Version: 2.5.0-b3
+Version: 2.5.0-b9
 Description: Description: Boost support for the ODB ORM library
 Build-Depends: libodb

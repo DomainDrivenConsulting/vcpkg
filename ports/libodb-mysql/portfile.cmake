@@ -11,18 +11,13 @@
 #
 
 include(vcpkg_common_functions)
-set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/libodb-mysql-2.5.0-b.3)
-vcpkg_download_distfile(ARCHIVE
-    URLS "https://codesynthesis.com/~boris/tmp/odb/pre-release/b.3/libodb-mssql-2.5.0-b.3.tar.gz"
-    FILENAME "libodb-mssql-2.5.0-b.3.tar.gz"
-    SHA512 53b2cb35b8329854f9697d718d7e3c665b4855560005b09af25660475e2e3a5b48fa2268d8dc258226f671cc67880a0f8f35fabc8563cade1495b732ea05990c
-)
-vcpkg_extract_source_archive(${ARCHIVE})
 
-vcpkg_apply_patches(
-    SOURCE_PATH ${SOURCE_PATH}
-    PATCHES
-        ${CMAKE_CURRENT_LIST_DIR}/adapter_mysql_8.0.patch
+vcpkg_from_git(
+    OUT_SOURCE_PATH SOURCE_PATH
+    URL "git://git.codesynthesis.com/odb/libodb-mysql.git"
+    REF fa51cc270fe6696a0be96e372dd0c00921f1c8b3
+    SHA512 84c5f57a146a238911b6de5d568acacd85712ab9250715b902c33146f67ab13f86720f7d38ea103a2a8556816373e1e1f814d2ddaf4c46664a9744c6cd7f82cc
+    PATCHES ${CMAKE_CURRENT_LIST_DIR}/adapter_mysql_8.0.patch
 )
 
 file(COPY

@@ -1,16 +1,22 @@
 include(vcpkg_common_functions)
-set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/libodb-pgsql-2.5.0-b.3)
-vcpkg_download_distfile(ARCHIVE
-    URLS "https://codesynthesis.com/~boris/tmp/odb/pre-release/b.3/libodb-pgsql-2.5.0-b.3.tar.gz"
-    FILENAME "libodb-pgsql-2.5.0-b.3.tar.gz"
-    SHA512 f53f996805f362666e97d292245d5341088b2dd7ef503fd9642a64d7dd18379adc70b0d1be5b72fd4b4d28c56a097320e6aaa27c88839b7422fc9ee9d7c93b40
+
+vcpkg_from_git(
+    OUT_SOURCE_PATH SOURCE_PATH
+    URL "git://git.codesynthesis.com/odb/libodb-pgsql.git"
+    REF 41c0f00576a4c47281570d9815a755df362d4e55
+    SHA512 0847138cfbd78c29e5829950f1f753ddfc509180f12d3aef82318c642e6afbe654ff3509cd78c5c6a2355ab3015935b5b6a3004a9a45762ff652b487bbf75999
 )
-vcpkg_extract_source_archive(${ARCHIVE})
 
 file(COPY
   ${CMAKE_CURRENT_LIST_DIR}/CMakeLists.txt
   ${CMAKE_CURRENT_LIST_DIR}/config.unix.h.in
   DESTINATION ${SOURCE_PATH})
+
+file(COPY
+  ${CMAKE_CURRENT_LIST_DIR}/options.ixx
+  ${CMAKE_CURRENT_LIST_DIR}/options.hxx
+  ${CMAKE_CURRENT_LIST_DIR}/options.cxx
+  DESTINATION ${SOURCE_PATH}/odb/pgsql/details)
 
 vcpkg_configure_cmake(
     SOURCE_PATH ${SOURCE_PATH}

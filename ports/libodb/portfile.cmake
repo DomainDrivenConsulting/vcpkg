@@ -8,13 +8,14 @@
 
 include(vcpkg_common_functions)
 include(CMakePackageConfigHelpers)
-set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/libodb-2.5.0-b.3)
-vcpkg_download_distfile(ARCHIVE
-    URLS "https://codesynthesis.com/~boris/tmp/odb/pre-release/b.3/libodb-2.5.0-b.3.tar.gz"
-    FILENAME "libodb-2.5.0-b.3.tar.gz"
-    SHA512 41dcb218aa2458033fa1e851fa91fa498840d9c9408374b87b9ef9dad8a28912a83d046c940894f0f39e3dd42c47cddd29e5033805cb73d4900a246dd61b71c3
+
+vcpkg_from_git(
+    OUT_SOURCE_PATH SOURCE_PATH
+    URL "git://git.codesynthesis.com/odb/libodb.git"
+    REF 9786d1593a202412eb59b30a4fff0422788ff7bc
+    SHA512 a3a2612ed88280e50e9e0f0151fa246abfe32d84d18b59ff8ac6b7f4244b1b5df3a40993932032bbdd4655dbaad1623023400ec3edcec5d7fc7085f5144ac7be
 )
-vcpkg_extract_source_archive(${ARCHIVE})
+
 file(COPY
   ${CMAKE_CURRENT_LIST_DIR}/CMakeLists.txt
   ${CMAKE_CURRENT_LIST_DIR}/config.unix.h.in

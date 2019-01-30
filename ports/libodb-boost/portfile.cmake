@@ -1,11 +1,11 @@
 include(vcpkg_common_functions)
-set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/libodb-boost-2.5.0-b.3)
-vcpkg_download_distfile(ARCHIVE
-    URLS "https://codesynthesis.com/~boris/tmp/odb/pre-release/b.3/libodb-boost-2.5.0-b.3.tar.gz"
-    FILENAME "libodb-boost-2.5.0-b.3.tar.gz"
-    SHA512 093da7a07252dec89e08cdb80664a575f3efebfbab11f9e7fcac8c81565996a32b88f10009baefabbff3c689015b84eddddeece5a19bbe5765d0f56fdd8fd829
+
+vcpkg_from_git(
+    OUT_SOURCE_PATH SOURCE_PATH
+    URL "git://git.codesynthesis.com/odb/libodb-boost.git"
+    REF e6c9f749aea3b741bd3d35a2d14c92e8c3227bb7
+    SHA512 6c9f031d1c23730a8ee6a4681da35d4ef846987162c0dd9ad887391442b24d4f1630f329392f8fb14b26f441988c3de562f3e74a41e27cf3b929b3cc23b5c747
 )
-vcpkg_extract_source_archive(${ARCHIVE})
 
 file(COPY
   ${CMAKE_CURRENT_LIST_DIR}/CMakeLists.txt
