@@ -40,7 +40,7 @@ vcpkg_configure_cmake(
 
         -DCMAKE_INSTALL_DIR=share
 
-        -DCMAKE_CXX_STANDARD=14
+        -DCMAKE_CXX_STANDARD=17
 )
 vcpkg_install_cmake()
 
